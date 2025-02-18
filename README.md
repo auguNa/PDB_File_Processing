@@ -3,8 +3,7 @@
 
 This project provides a FastAPI application that processes PDB files and performs various computations. 
 The app is dockerized for easy deployment and testing.
-
-## 🚀 How to Build and Run the Docker Container
+The workflow schematic and .pdb files are saved in the docs folder.
 
 ### 1. Clone the repository:
 git clone https://github.com/auguNa/PDB_File_Processing.git
@@ -23,6 +22,8 @@ docker build -t <your_image_name> .
 Once the image is built, run the container using the command below:
 
 docker run -d -p 8000:8000 -v $(pwd)/outputs:/app/outputs <your_image_name>
+- for Windows PowerShell:
+docker run -d -p 8000:8000 -v ${PWD}/outputs:/app/outputs <your_image_name>
 
 - `-d`: Runs the container in detached mode.
 - `-p 8000:8000`: Maps port 8000 of the container to port 8000 on your local machine.
@@ -36,36 +37,7 @@ http://127.0.0.1:8000/docs
 
 The `/docs` endpoint will provide interactive documentation where you can test the app's functionality.
 
-## 📦 Dependencies
-
-The application relies on the following Python dependencies, which are defined in `requirements.txt`:
-
-- **FastAPI**: For building the web framework.
-- **Uvicorn**: ASGI server for running FastAPI.
-- **Pydantic**: Data validation and settings management.
-- **Python-multipart**: File upload handling.
-- **Requests**: For making HTTP requests (if needed).
-- **Starlette**: Core FastAPI components.
-
-To install dependencies manually (if not using Docker):
-
-pip install -r requirements.txt
-
-## 🐳 How to Use Docker Compose (Optional)
-
-If you prefer to use Docker Compose for managing the container, follow these steps:
-
-### 1. Run the application with Docker Compose:
-docker-compose up --build
-
-This will build the Docker image (if not already built) and start the container.
-
-### 2. Access the FastAPI application:
-After running the `docker-compose` command, the app will be accessible at:
-
-http://127.0.0.1:8000/docs
-
-## 🧪 Testing the Application Using FastAPI
+### 5.🧪 Testing the Application Using FastAPI
 
 Once the application is running, you can test it using the interactive Swagger UI:
 
@@ -76,7 +48,9 @@ Once the application is running, you can test it using the interactive Swagger U
 - **URL**: `http://127.0.0.1:8000/process-pdb/`
 - **Method**: `POST`
 - **Body**: Upload a PDB file (e.g., `1bey.pdb`).
-
+1. Access Try it out
+2. Choose File (Select your pdb file)
+3. Execute
 #### Expected Response:
 ```json
 {
@@ -112,6 +86,36 @@ The metadata file `1bey.pdb_metadata.json` will be saved to the `outputs/` folde
 in the container or the local directory if using volume mapping.
 
 ---
+
+## 📦 Dependencies
+
+The application relies on the following Python dependencies, which are defined in `requirements.txt`:
+
+- **FastAPI**: For building the web framework.
+- **Uvicorn**: ASGI server for running FastAPI.
+- **Pydantic**: Data validation and settings management.
+- **Python-multipart**: File upload handling.
+- **Requests**: For making HTTP requests (if needed).
+- **Starlette**: Core FastAPI components.
+
+To install dependencies manually (if not using Docker):
+
+pip install -r requirements.txt
+
+## 🐳 How to Use Docker Compose (Optional)
+
+If you prefer to use Docker Compose for managing the container, follow these steps:
+
+### 1. Run the application with Docker Compose:
+docker-compose up --build
+
+This will build the Docker image (if not already built) and start the container.
+
+### 2. Access the FastAPI application:
+After running the `docker-compose` command, the app will be accessible at:
+
+http://127.0.0.1:8000/docs
+
 
 ## 📂 Directory Structure
 
