@@ -138,7 +138,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-### If you have any further questions or issues, feel free to ask! 😄
+### If you have any further questions or issues, feel free to ask! 
 
 ---
 
